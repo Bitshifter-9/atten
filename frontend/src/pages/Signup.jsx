@@ -16,7 +16,6 @@ export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
   const handleSignup = async () => {
     try {
       await axios.post("https://atten-m39t.onrender.com/auth/signup", {
@@ -27,8 +26,13 @@ export default function Signup() {
       alert("Signup successful! Please login.");
       navigate("/");
     } catch (error) {
-      alert("Signup failed. User may already exist.");
-      console.error(error);
+      if (error.response) {
+        console.error("Backend error:", error.response.data);
+        alert(error.response.data.error || "Signup failed.");
+      } else {
+        console.error("Network/Other error:", error);
+        alert("Signup failed due to network error.");
+      }
     }
   };
 
