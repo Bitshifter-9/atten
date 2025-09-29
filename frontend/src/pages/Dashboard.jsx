@@ -38,7 +38,7 @@ const Dashboard = () => {
 
   const fetchSubjects = useCallback(async () => {
     try {
-      const res = await axios.get("http://127.0.0.1:5000/subjects", {
+      const res = await axios.get("https://atten-m39t.onrender.com/subjects", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSubjects(res.data);
@@ -49,7 +49,7 @@ const Dashboard = () => {
 
   const fetchReport = useCallback(async () => {
     try {
-      const res = await axios.get("http://127.0.0.1:5000/report", {
+      const res = await axios.get("https://atten-m39t.onrender.com/report", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTotalAttendance(res.data);
@@ -71,7 +71,7 @@ const Dashboard = () => {
     if (!subjectName.trim()) return;
     try {
       await axios.post(
-        "http://127.0.0.1:5000/subjects",
+        "https://atten-m39t.onrender.com/subjects",
         { subject_name: subjectName },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -85,7 +85,7 @@ const Dashboard = () => {
 
   const deleteSubject = async (id) => {
     try {
-      await axios.delete(`http://127.0.0.1:5000/subjects/${id}`, {
+      await axios.delete(`https://atten-m39t.onrender.com/subjects/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchSubjects();
@@ -98,7 +98,7 @@ const Dashboard = () => {
   const updateAttendance = async (subjectId, type, newTotal, newAttended) => {
     try {
       await axios.post(
-        "http://127.0.0.1:5000/attendance",
+        "https://atten-m39t.onrender.com/attendance",
         {
           subjectId,
           type,
