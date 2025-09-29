@@ -177,6 +177,4 @@ app.get("/report", authMiddleware, async (req, res) => {
 // app.listen(PORT, "127.0.0.1", () =>
 //   console.log(`Server running on http://127.0.0.1:${PORT}`)
 // );
-app.listen(PORT, () =>
-  console.log(`Server running on port ${PORT}`)
-);
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
