@@ -19,7 +19,7 @@ export default function Signup() {
 
   const handleSignup = async () => {
     try {
-      await axios.post("http://127.0.0.1:5000/auth/signup", {
+      await axios.post("https://atten-m39t.onrender.com/auth/signup", {
         name,
         email,
         password,
