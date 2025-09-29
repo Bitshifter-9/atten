@@ -18,7 +18,7 @@ export default function Login() {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post("http://127.0.0.1:5000/auth/login", {
+      const res = await axios.post("https://atten-m39t.onrender.com/auth/login", {
         email,
         password,
       });
